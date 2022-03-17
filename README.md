@@ -1,23 +1,21 @@
 # Typescript
 
-You are viewing the `Typescript` exercices.
+You are viewing the `solutions Typescript` exercices.
 
-The training  is divided following the chapter below :
+Reminder of the different chapter : 
 
 1. Introduction: [01]
 2. Functions: [02]
 3. Classes, Interfaces and Enums: [03-05]
-4. Type and template literal types: [06-11]
-5. Generics and Type guards: [12-13]
-
-_Bonuses:_
- * exercices with react examples
- * exercices on example of use case
+4. Type and template literal types: [06-12]
+5. Generics and Type guards: [13-14]
+6. Use cases: [15]
++ bonus
 
 Each chapter is subdivided into different exercices and each of thoses exercices can run using the following command :
 
 ```terminal
-npm|yarn run start:<(bonus)* exercices number> e.g: npm run start:01
+npm run start:<(bonus)exercices number>
 ```
 
 ## System Requirements
@@ -39,8 +37,6 @@ If you have trouble with any of these, learn more about the PATH environment
 variable and how to fix it here for [windows][win-path] or
 [mac/linux][mac-path].
 
-
 __contributors__
 * @b-barry
 * @mumeshu 
-* @Jojoker33

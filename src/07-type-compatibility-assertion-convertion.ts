@@ -27,7 +27,8 @@ interface Teacher {
 const student: Student = { name:'lol', age:19 };
 const teacher: Teacher = { name:'lol3', age:30,work:'teacher' };
 
-function acceptStudent(student: Student) {
+function acceptStudent(member: Student) {
+  console.log("accepted", member);
 }
 
 acceptStudent(student);

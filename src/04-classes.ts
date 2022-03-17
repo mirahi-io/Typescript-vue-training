@@ -5,11 +5,36 @@
 * addition a Student has the methods connect and disconnect which change the isActive property 
 */
 
-// const paul:Student  = {
-//   name: "lol",
+// const student  = {
+//   name: 'Sheldon'
 //   age: 19,
 //   isActive: false
 // };
+
+class Student {
+    name : String
+    age : number
+    isActive : boolean
+
+    constructor(name: string, age: number){
+        this.name = name;
+        this.age = age;
+        this.isActive = false;
+    }
+
+
+    connect(){
+        this.isActive = true
+    }
+
+    disconnect(){
+        this.isActive = false
+    }
+
+}
+
+
+
 
 /*======================================================================================================*/
 
@@ -24,16 +49,29 @@
         this.whoAmI();
         console.log(`My name is ${ this.name }, you killed my father, prepare to die!`)
     }
- */
+ */   
 
 class Player {
+    public username: String;
+    private name? : String;
+
+    constructor(username: string, name?: string){
+        this.username = username;
+        this.name = name || `Inigo Montoya`;
+    }
+
+    protected whoAmI():void{
+        console.log(`${this.username} - ${this.name}`)
+    }
+
+    prepareForbattle():void{
+        this.whoAmI();
+        console.log(`My name is ${ this.name }, you killed my father, prepare to die!`)
+    }
 }
 
-// const p1 = new Player('typescriptTester','Leonard');
-// One of those following calls won't work, why ? 
-// p1.whoAmI();
-// p1.prepareForbattle();
-
+const p1 = new Player('test','typescript');
+p1.prepareForbattle();
 /*======================================================================================================*/
 
 
@@ -48,18 +86,19 @@ class Player {
 
 class Admin extends Player {
     private hasRootAccess: boolean
-    
-    constructor( rootAccess: boolean){
+    constructor( username: string,rootAccess: boolean){
+        super(username);
         this.hasRootAccess = rootAccess;
     }
     
     isRoot(): boolean {
         this.whoAmI();
+        this.prepareForbattle();
         return this.hasRootAccess;
     }
 }
 
-const admin = new Admin(true);
+const admin = new Admin('Morningstar', true);
 
 // only for testing purposes
 
@@ -71,7 +110,7 @@ console.log("Am i root ",admin.isRoot());
 
 /**
 * Understanding the notion statics :
-* TODO: uncomment the example below 
+* TODO uncomment the example below 
 */
 
 // class Firework {

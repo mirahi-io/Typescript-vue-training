@@ -13,12 +13,12 @@ type Worker = {
   company: string;
 };
 
-type Human = null;
+type Human = Student & Worker;
 
 const human: Human = {
   id: "looll",
   age: 9,
-  company: "endgame"
+  company: "endgame",
 };
 
 // /?\ This works also with interface
@@ -31,7 +31,7 @@ type UserWithoutId = {
   age: number;
 };
 
-type User = UserWithoutId ;
+type User = UserWithoutId & { id: number };
 
 // Uncomment these line to see the error and fix it
 

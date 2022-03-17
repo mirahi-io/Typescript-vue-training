@@ -1,11 +1,10 @@
-
 /*
   Union Type
 */
 
-// TODO: type 'toString'
 
-function toString(text) {
+
+function toString(text: string | string[]): string {
   if (typeof text === "string") {
     return text;
   }
@@ -17,8 +16,6 @@ toString(["lol", "llll"]);
 
 /*======================================================================================================*/
 
-// TODO: implement 'SchoolMember' type that is an union of 'Student' and 'Teacher'
-
 interface Student {
   id: string;
   age: number;
@@ -28,18 +25,61 @@ interface Teacher {
   course: string;
 }
 
-type SchoolMember = null;
+type SchoolMember = Student | Teacher;
 
-// Uncomment these line to see how to implement it
-// const member1: SchoolMember = {
-//   course: "Math"
-// };
-//
-// const member2: SchoolMember = {
-//   id: "cool",
-//   age: 19
-// };
+const member1: SchoolMember = {
+  course: "Math"
+};
 
+const member2: SchoolMember = {
+  id: "cool",
+  age: 19
+};
+
+/*======================================================================================================*/
+
+
+
+type AddTodo = {
+  type: "ADD_TODO";
+  text: string;
+};
+
+type ToggleTodo = {
+  type: "TOGGLE_TODO";
+  index: number;
+};
+
+type Todo = {
+  text: string;
+  done: boolean;
+};
+
+type Action = AddTodo | ToggleTodo;
+
+function todosReducer(state: Todo[] = [], action: Action): Todo[] {
+  switch (action.type) {
+    case "ADD_TODO":
+      // action has type AddTodo here
+      return [...state, { text: action.text, done: false }];
+
+    case "TOGGLE_TODO":
+      // action has type ToggleTodo here
+      return state.map((todo, index) => {
+        if (index !== action.index) {
+          return todo;
+        }
+
+        return {
+          text: todo.text,
+          done: !todo.done
+        };
+      });
+
+    default:
+      return state;
+  }
+}
 
 /*======================================================================================================*/
 

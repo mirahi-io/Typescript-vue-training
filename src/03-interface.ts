@@ -1,16 +1,20 @@
 /*
-  Interface
+* Type
 */
 
-// TODO: implement 'Person' interface to type 'paul' variable
+// implement 'Person' interface to type 'paul' variable
 
-// Uncomment these line to see how to implement it
+interface Person {
+  name: string;
+  age: number;
+  isActive: boolean;
+}
 
-// const paul: Person = {
-//   name: "lol",
-//   age: 19,
-//   isActive: false
-// };
+const paul: Person = {
+  name: "lol",
+  age: 19,
+  isActive: false
+};
 
 /*======================================================================================================*/
 
@@ -18,12 +22,16 @@ function getValueComplete2(obj: { value: boolean }): { valueChanged: number } {
   return { valueChanged: 2 };
 }
 
-// TODO: create the interfaces based on the typing of getValueComplete2
+// create the interfaces based on the typing of getValueComplete2
 // i.e an 'Value' interface for { value: boolean } and 'ValueChanged' interface for { valueChanged: number }
 
-interface Value {}
+interface Value {
+  value: boolean;
+}
 
-interface ValueChanged {}
+interface ValueChanged {
+  valueChanged: number;
+}
 
 function getValueCompleteWithInterface(obj: Value): ValueChanged {
   return { valueChanged: 2 };
@@ -35,9 +43,11 @@ getValueCompleteWithInterface(testValue); // Why typescript is not complaining ?
 
 /*======================================================================================================*/
 
-// TODO: implement 'Person2' interface  to match 'paul2' variable type
+// implement 'Person2' interface  to match 'paul2' variable type
 
-interface Person2 {}
+interface Person2 {
+  getRealAge(a: number): number;
+}
 
 const paul2: Person2 = {
   getRealAge(a: number): number {
@@ -47,16 +57,17 @@ const paul2: Person2 = {
 
 /*======================================================================================================*/
 
-// TODO: type the function 'sum' below using an interface
+//  type the function 'sum' below using an interface
 
-interface Sum {}
+interface Sum {
+  (a: number, b: number): number;
+}
 
-// Uncomment these line to see how to implement it
-// const sum: Sum = (a: number, b: number): number => {
-//   return a + b;
-// };
-//
-// sum(1, 3);
+const sum: Sum = (a: number, b: number): number => {
+  return a + b;
+};
+
+sum(1, 3);
 
 /*======================================================================================================*/
 
@@ -64,9 +75,13 @@ interface Sum {}
   Classes as types
 */
 
-// TODO: implement the 'User' class to type user1 & user2 variables
+// implement the 'User' class to type user1 & user2 variables
 
-class User {}
+interface User {
+  name: string;
+  age: number;
+  isValid?: boolean;
+}
 
 const user1: User = {
   name: "kal",
@@ -85,7 +100,7 @@ const user2: User = {
   Classes can implement interfaces
 */
 
-// TODO: implement the 'Transporter' interface for Taxi and CityBus
+//  implement the 'Transporter' interface for Taxi and CityBus
 //  Taxi getPrice should return 100
 //  CityBus getPrice should return 75
 
@@ -93,9 +108,17 @@ interface Transporter {
   getPrice(): number;
 }
 
-class Taxi {}
+class Taxi implements Transporter {
+  getPrice(): number {
+    return 100;
+  }
+}
 
-class CityBus {}
+class CityBus implements Transporter {
+  getPrice(): number {
+    return 75;
+  }
+}
 
 function calculate(vehicule: Transporter): string {
   return "Price is=" + vehicule.getPrice();

@@ -4,16 +4,17 @@
 * @see https://steveholgado.com/typescript-types-from-arrays/
 */
 
-// TODO Given a the following array create the type colors : 
-const colors = ['bleue', 'green', 'red']
+// TODO: Given a the following array create the type Color : 
+const colors = ['bleue', 'green', 'red'] as const;
+type color = typeof colors[number];
 
-// TODO given the following array of object create a type elements type
+
+
+// TODO: given the following array of object create a type elements type
 const pocketMonsters = [
     {name: "Venusaur", type:"Grass"  },
     {name: "Charizard", type:"Fire"  },
     {name: "Blastoise", type:"Water"  }
-    
-    ]
+    ] as const
 
-
-export {};
+type type = typeof pocketMonsters[number]['type'];

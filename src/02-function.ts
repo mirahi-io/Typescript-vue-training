@@ -2,9 +2,9 @@
   Function type
 */
 
-// TODO: type these function below
+// TODO: type the functions below
 
-function add(a, b) {
+function add(a: number, b: number): number {
   return a + b;
 }
 
@@ -12,65 +12,52 @@ add(1, 3);
 
 /*--------------------------------------------------------------------*/
 
-// TODO: type these function below with their return type
+function getValue(obj: { value: string }): string {
+  return obj.value;
+}
 
-// Uncomment me
-// function getValue(obj) {
-//   return obj.value;
-// }
-//
-// getValue({ value: "hello" });
+getValue({ value: "hello" });
 
 /*--------------------------------------------------------------------*/
-// TODO: type these function below with their return type
 
-// Uncomment me
-// function method(a, b) {
-//   const t = a + b;
-//   console.log("t", t);
-// }
+function method(a: number, b: number): void {
+  const t = a + b;
+  console.log("t", t);
+}
 
-// method(1, 3);
+method(1, 3);
 
 /*======================================================================================================*/
 
 // TODO: type these function below with their return type
 
-// Uncomment me
-// function addComplete(a, b) {
-//   return `${a + b}`;
-// }
+function addComplete(a: number, b: number): string {
+  return `${a + b}`;
+}
 
-// Uncomment these line to see how to implement it
-// addComplete(1, 3);
+addComplete(1, 3);
 
 /*--------------------------------------------------------------------*/
 
-// TODO: type these function below with their return type
+function getValueComplete(obj: { value: boolean }): boolean {
+  return obj.value;
+}
 
-// Uncomment me
-// function getValueComplete(obj) {
-//   return obj.value;
-// }
-
-// Uncomment these line to see how to implement it
-// getValueComplete({ value: false });
+getValueComplete({ value: false });
 
 /*======================================================================================================*/
 
 // TODO: type these function below with their return type
 
-// Uncomment me
-// function addWithOptional(a, b) {
-//   if (b) {
-//     return `${a + b}`;
-//   }
-//
-//   return `${a}`;
-// }
+function addWithOptional(a: number, b?: number): string {
+  if (b) {
+    return `${a + b}`;
+  }
 
-// Uncomment these line to see how to implement it
-// addWithOptional(1);
+  return `${a}`;
+}
+
+addWithOptional(1);
 
 /*======================================================================================================*/
 
@@ -80,13 +67,12 @@ add(1, 3);
 
 // TODO: type the 'inlineAnnotationAdd' function below with their return type
 
-let inlineAnnotationAdd; // here
+let inlineAnnotationAdd: (a: number, b: number) => number; // here
 
-// Uncomment these line to see how to implement it
-// // /!\ You should touch the code below
-// inlineAnnotationAdd = function(a, b) {
-//   return a + b;
-// };
+// /!\ You should touch the code below
+inlineAnnotationAdd = function (a, b) {
+  return a + b;
+};
 
 /*======================================================================================================*/
 
@@ -96,11 +82,11 @@ let inlineAnnotationAdd; // here
 
 // TODO: type the 'addCurrying' function below with their return type
 
-let addCurrying; // here
+let addCurrying: (a: number) => (b: number) => number; // here
 
-// You should not touch the code below
-addCurrying = function(a: number) {
-  return function(b: number) {
+// You should touch the code below
+addCurrying = function (a: number) {
+  return function (b: number) {
     return a + b;
   };
 };
@@ -115,6 +101,32 @@ addCurrying(123)(456);
 
 // TODO: type the 'padding' function below using the overload
 
+function padding(all: number): {
+  top: number;
+  left: number | undefined;
+  bottom: number | undefined;
+  right: number | undefined;
+};
+function padding(
+  topAndBottom: number,
+  leftAndRight: number
+): {
+  top: number;
+  left: number | undefined;
+  bottom: number | undefined;
+  right: number | undefined;
+};
+function padding(
+  top: number,
+  right: number,
+  bottom: number,
+  left: number
+): {
+  top: number;
+  left: number | undefined;
+  bottom: number | undefined;
+  right: number | undefined;
+};
 function padding(
   a: number,
   b?: number,
@@ -136,7 +148,7 @@ function padding(
     top: a,
     right: b,
     bottom: c,
-    left: d
+    left: d,
   };
 }
 
