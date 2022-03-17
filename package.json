@@ -1,0 +1,30 @@
+{
+  "name": "typescript-training",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:demo": "ts-node ./src/demo.ts",
+    "start:01": "ts-node ./src/01-introduction.ts",
+    "start:02": "ts-node ./src/02-function.ts",
+    "start:03": "ts-node ./src/03-interface.ts",
+    "start:04": "ts-node ./src/04-classes.ts",
+    "start:05": "ts-node ./src/05-enums.ts",
+    "start:06": "ts-node ./src/06-type.ts",
+    "start:07": "ts-node ./src/07-type-compatibility-assertion-convertion",
+    "start:08": "ts-node ./src/08-intersection-types.ts",
+    "start:09": "ts-node ./src/09-union-type-and-type-alias",
+    "start:10": "ts-node ./src/10-const-assertion.ts",
+    "start:11": "ts-node ./src/11-string-literal-index-mapped-this-types.ts",
+    "start:12": "ts-node ./src/12-type-guards.ts",
+    "start:13": "ts-node ./src/13-generic.ts",
+    "start:bonus01": "ts-node .src/bonus/bonus-01-react-merging-and-augmentation.ts",
+    "start:bonus02": "ts-node src/bonus/bonus-02-game.ts"
+  },
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "ts-node": "^9.0.0"
+  }
+}
